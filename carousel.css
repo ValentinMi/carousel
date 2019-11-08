@@ -1,0 +1,158 @@
+@-webkit-keyframes unzoom {
+  from {
+    height: 100%;
+    width: 100%;
+  }
+  to {
+    height: 60%;
+    width: 60%;
+  }
+}
+
+@keyframes unzoom {
+  from {
+    height: 100%;
+    width: 100%;
+  }
+  to {
+    height: 60%;
+    width: 60%;
+  }
+}
+
+@-webkit-keyframes zoom {
+  from {
+    height: 60%;
+    width: 60%;
+  }
+  to {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@keyframes zoom {
+  from {
+    height: 60%;
+    width: 60%;
+  }
+  to {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0%;
+  }
+}
+
+@-webkit-keyframes slideOut {
+  from {
+    top: 0%;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    top: 0%;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+.carousel {
+  height: 500px;
+  width: 700px;
+  border: 1px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.carousel .board {
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel .board .slide {
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -100%;
+}
+
+.carousel .board .slide .image {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel .board .slide .text {
+  position: absolute;
+  top: 0;
+}
+
+.carousel .board .slide .link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.carousel .board .slide-default {
+  position: relative;
+  top: 0;
+}
+
+.cell-container {
+  z-index: 999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+}
+
+.cell-container .cell {
+  height: 10px;
+  width: 70px;
+  background: red;
+  opacity: 0.3;
+  margin: 0 5%;
+}
+
+.cell-container .cell-active {
+  opacity: 1;
+  pointer-events: none;
+}
+/*# sourceMappingURL=carousel.css.map */
