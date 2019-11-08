@@ -82,23 +82,35 @@
       top: 0;
     }
   }
-}
-
-.cell-container {
-  z-index: 999;
-  display: flex;
-  position: absolute;
-  bottom: 10%;
-  right: 0;
-  .cell {
-    height: 10px;
-    width: 70px;
-    background: red;
-    opacity: 0.3;
-    margin: 0 5%;
+  .cell-container {
+    z-index: 999;
+    display: flex;
+    position: absolute;
+    bottom: 10%;
+    right: 0;
+    .cell {
+      height: 10px;
+      width: 70px;
+      background: red;
+      opacity: 0.3;
+      margin: 0 5%;
+    }
+    .cell-active {
+      opacity: 1;
+      pointer-events: none;
+    }
   }
-  .cell-active {
-    opacity: 1;
-    pointer-events: none;
+
+  .nav-btn-container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-btn {
+    background: rgba(105, 105, 105, 0.7);
+    padding: 2%;
+    color: white;
+    cursor: pointer;
   }
 }

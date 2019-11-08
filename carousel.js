@@ -12,7 +12,7 @@ function carousel() {
 
   // Carousel states
   let isMoving = false;
-  let slideHistory = [0];
+  const slideHistory = [0];
 
   // Select DOM elements
   const board = document.getElementById("board");
@@ -22,10 +22,11 @@ function carousel() {
   // Throw error if no slides
   if (slides.length === 0) throw new Error("Create at least one slide");
 
-  ////////////////////////////////
-  // CREATE CELL FOR EACH SLIDE //
-  ////////////////////////////////
+  ////////////////
+  // NAVIGATION //
+  ////////////////
 
+  // Create one cell for each slide
   slides.forEach((slide, index) => {
     const cell = document.createElement("div");
     cell.className = cellClassName;
@@ -41,6 +42,35 @@ function carousel() {
     // Cells appends in DOM
     cellContainer.appendChild(cell);
   });
+
+  // Select previous and next slide btn in DOM
+  const prevBtn = document.getElementById("nav-btn-prev");
+  const nextBtn = document.getElementById("nav-btn-next");
+
+  prevBtn.addEventListener("click", () => previousSlide());
+  prevBtn.addEventListener("touchstart", () => previousSlide());
+
+  nextBtn.addEventListener("click", () => nextSlide());
+  nextBtn.addEventListener("touchstart", () => nextSlide());
+
+  // Display last slide
+  function previousSlide() {
+    const currentSlideIndex = slideHistory[slideHistory.length - 1];
+    // If currentSlide is the first => display the last
+    if (currentSlideIndex === 0) {
+      switchSlide(slides.length - 1);
+    }
+    switchSlide(currentSlideIndex - 1);
+  }
+
+  // Display n+1 slide
+  function nextSlide() {
+    const currentSlideIndex = slideHistory[slideHistory.length - 1];
+    // If currentSlide is the last => display the first
+    if (currentSlideIndex === slides.length - 1) {
+      switchSlide(0);
+    } else switchSlide(currentSlideIndex + 1);
+  }
 
   ///////////////////
   // ANIM FUNCTION //

@@ -133,7 +133,7 @@
   top: 0;
 }
 
-.cell-container {
+.carousel .cell-container {
   z-index: 999;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -143,7 +143,7 @@
   right: 0;
 }
 
-.cell-container .cell {
+.carousel .cell-container .cell {
   height: 10px;
   width: 70px;
   background: red;
@@ -151,8 +151,26 @@
   margin: 0 5%;
 }
 
-.cell-container .cell-active {
+.carousel .cell-container .cell-active {
   opacity: 1;
   pointer-events: none;
+}
+
+.carousel .nav-btn-container {
+  position: absolute;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.carousel .nav-btn {
+  background: rgba(105, 105, 105, 0.7);
+  padding: 2%;
+  color: white;
+  cursor: pointer;
 }
 /*# sourceMappingURL=carousel.css.map */
