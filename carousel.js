@@ -1,6 +1,5 @@
 function carousel() {
-  // Init custom className & anim properties
-  const cellClassName = "cell";
+  // Init anim properties
   const zoomAnimDuration = 700; //ms 1s = 1000ms
   const slideAnimDuration = 700;
   const animNames = {
@@ -29,13 +28,13 @@ function carousel() {
   // Create one cell for each slide
   slides.forEach((slide, index) => {
     const cell = document.createElement("div");
-    cell.className = cellClassName;
+    cell.className = "cell";
     // Assign active class to default active cell
     if (index === 0) {
-      cell.className = cellClassName + " cell-active";
+      cell.className = "cell" + " cell-active";
     }
     // Assign unique id
-    cell.id = cellClassName + index;
+    cell.id = "cell" + index;
     // Assign event listeners
     cell.addEventListener("click", () => switchSlide(index));
     cell.addEventListener("touchstart", () => switchSlide(index));
@@ -88,9 +87,9 @@ function carousel() {
     const cells = Object.values(cellContainer.children);
     cells.forEach(c => {
       if (cells.indexOf(c) === nextSlideIndex) {
-        c.className = cellClassName + " cell-active";
+        c.className = "cell" + " cell-active";
       } else {
-        c.className = cellClassName;
+        c.className = "cell";
       }
     });
 
