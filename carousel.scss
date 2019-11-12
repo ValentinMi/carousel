@@ -113,4 +113,13 @@
     color: white;
     cursor: pointer;
   }
+  .btn-auto {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .btn-auto-active {
+    border: 1px solid red;
+  }
 }

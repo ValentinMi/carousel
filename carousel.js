@@ -2,6 +2,7 @@ function carousel() {
   // Init anim properties
   const zoomAnimDuration = 700; //ms 1s = 1000ms
   const slideAnimDuration = 700;
+  const autoSlideInterval = 5000;
   const animNames = {
     unzoom: "unzoom",
     zoom: "zoom",
@@ -12,6 +13,7 @@ function carousel() {
   // Carousel states
   let isMoving = false;
   const slideHistory = [0];
+  let autoMode = true;
 
   // Select DOM elements
   const board = document.getElementById("board");
@@ -45,12 +47,17 @@ function carousel() {
   // Select previous and next slide btn in DOM
   const prevBtn = document.getElementById("nav-btn-prev");
   const nextBtn = document.getElementById("nav-btn-next");
+  // Select autoMode btn in DOM
+  const autoBtn = document.getElementById("btn-auto");
 
   prevBtn.addEventListener("click", () => previousSlide());
   prevBtn.addEventListener("touchstart", () => previousSlide());
 
   nextBtn.addEventListener("click", () => nextSlide());
   nextBtn.addEventListener("touchstart", () => nextSlide());
+
+  autoBtn.addEventListener("click", () => invertAutoMode());
+  autoBtn.addEventListener("touchstart", () => invertAutoMode());
 
   // Display last slide
   function previousSlide() {
@@ -69,6 +76,41 @@ function carousel() {
     if (currentSlideIndex === slides.length - 1) {
       switchSlide(0);
     } else switchSlide(currentSlideIndex + 1);
+  }
+
+  ///////////////
+  // AUTO MODE //
+  ///////////////
+
+  let autoSlide = setInterval(() => {
+    console.log("test interval");
+    if (autoMode === false) return;
+    const currentSlideIndex = slideHistory[slideHistory.length - 1];
+    if (currentSlideIndex === slides.length - 1) {
+      switchSlide(0);
+    } else switchSlide(currentSlideIndex + 1);
+  }, autoSlideInterval);
+
+  function invertAutoMode() {
+    // Invert
+    autoMode = !autoMode;
+    // Relaunch interval or clear it and assign specific class for the btn
+    if (autoMode) {
+      // Reassign active className
+      autoBtn.className = "btn-auto btn-auto-active";
+      autoSlide = setInterval(() => {
+        console.log("test interval");
+        if (autoMode === false) return;
+        const currentSlideIndex = slideHistory[slideHistory.length - 1];
+        if (currentSlideIndex === slides.length - 1) {
+          switchSlide(0);
+        } else switchSlide(currentSlideIndex + 1);
+      }, autoSlideInterval);
+    } else {
+      // Remove ative className
+      autoBtn.className = "btn-auto";
+      clearInterval(autoSlide);
+    }
   }
 
   ///////////////////

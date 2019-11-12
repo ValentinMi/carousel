@@ -173,4 +173,14 @@
   color: white;
   cursor: pointer;
 }
+
+.carousel .btn-auto {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.carousel .btn-auto-active {
+  border: 1px solid red;
+}
 /*# sourceMappingURL=carousel.css.map */
