@@ -2,7 +2,7 @@ function carousel() {
   // Init anim properties
   const zoomAnimDuration = 700; //ms 1s = 1000ms
   const slideAnimDuration = 700;
-  const autoSlideInterval = 5000;
+  const autoSlideInterval = 10000;
   const animNames = {
     unzoom: "unzoom",
     zoom: "zoom",
